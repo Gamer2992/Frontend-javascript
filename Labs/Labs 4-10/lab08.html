@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta http-equiv="Content-Type" 
+    content="text/html"
+    charset="UTF-8">
+    <title>Lab 08</title>
+</head>
+<body>
+    <h3>Lab 08</h3>
+    <script>
+        var dag = new Date().toDateString();
+        var datum = new Date();
+        var factuurdatum = new Date("2020,02,20");
+        var termijn = new Date(30 * 86400000);
+        var betaaltijd = factuurdatum.getTime() + termijn.getTime();
+        var betaaldatum = new Date(betaaltijd);
+        var resterend = betaaltijd - datum;
+        var iets = resterend / 86400000;
+  
+        document.write("Vandaag is: " + dag);
+        document.write("<br>Factuurdatum is: " + factuurdatum.toDateString());
+        document.write("<br>Betaaldatum is: " + betaaldatum.toDateString());
+  
+        if (datum > betaaldatum) {
+          document.write("<br>Meld incassobureau");
+        } else {
+          document.write(
+            "<br>Je hebt nog " + iets.toFixed(0) + " dagen om te betalen.");
+        }
+      </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab04</title>
+</head>
+<body>
+  <script>
+    pallet = ['Oranje','Rood','Blauw','Groen','Paars'];
+    document.write(pallet);
+    var nieuwekleur = prompt('Typ een nieuwe kleur in: ');
+    pallet.push(nieuwekleur);
+    document.write('</br>' + pallet);
+    var nieuwekleur = prompt('Typ een nieuwe kleur in: ');
+    pallet.push(nieuwekleur);
+    document.write('</br>' + pallet);
+    pallet.sort();
+    document.write('</br>' + pallet);
+    pallet2 = pallet.splice(2,3);
+    document.write('</br>' + pallet);
+    document.write('</br>' + pallet2);
+    pallet3 = pallet;
+    document.write('</br>' + pallet3);
+
+  </script>
+</body>
+</html>

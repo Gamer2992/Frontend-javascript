@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+
+<html lang="nl">
+<head>
+    <meta http-equiv="content-type"
+          content="text/html;
+          charset=UTF-8">
+    <title>lab 01</title>
+    <!-- dit script werkt met veriabelen
+        auteur: Henk Moraal
+        datum: 29-01-2020
+        -->
+</head>
+<body>
+    <h2>Lab 06</h2>
+    <h3>Factuur</h3>
+    <script>
+        var vandaag = new Date();
+        mm = vandaag.getMonth()+1;
+        dd = vandaag.getDate();
+        jjjj = vandaag.getFullYear();
+        document.write("Factuurdatum: " + dd + '-' + mm + '-' + jjjj + "<br />");
+        var dag = 86400000;
+        betaaldatum = vandaag.getTime() + (dag * 5);
+        betaaldatum = new Date(betaaldatum);
+        mm = betaaldatum.getMonth()+1;
+        dd = betaaldatum.getDate();
+        jjjj = betaaldatum.getFullYear();
+        document.write("Betaaldatum:" + dd + '-' + mm + '-' + jjjj + "<br />");
+        var klantnaam = prompt("Voer je eigen naam in");
+        var aantal = parseInt(prompt("Aantal boeken bestellen?"));
+        var titel = "Javascript";
+        var prijs = 29.90;
+        var bedrag = aantal * prijs;
+        var btw = bedrag * 0.06;
+        var totaal = bedrag + btw;
+        document.write(
+            "<br>Bedankt voor je bestelling: " + klantnaam);
+        document.write("<br>Boektitel is: " + titel);
+        document.write("<br>Aantal te bestellen: " + aantal);
+        document.write("<br>Prijs per boek is: " + prijs.toFixed(2));
+        document.write("<br>Het bedrag is: " + bedrag.toFixed(2));
+        document.write("<br>De BTW is: " + btw.toFixed(2));
+        document.write("<br>Totaal inclusied BTW is: " + totaal.toFixed(2));
+    </script>
+</body>
+</html>

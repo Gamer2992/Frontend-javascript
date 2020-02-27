@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html lang="nl">
+<head>
+    <meta http-equiv="content-type"
+          content="text/html;
+          charset=UTF-8">
+    <title>lab 01</title>
+    <!-- dit script werkt met veriabelen
+        auteur: Henk Moraal
+        datum: 29-01-2020
+        -->
+</head>
+<body>
+    <h2>Lab 06</h2>
+    <h3>Factuur</h3>
+    <script>
+      var klantnaam = prompt("Voer je eigen naam in");
+      var aantal = parseInt(prompt("Aantal boeken te bestellen?"));
+      var woonplaats = prompt("Wat is je woonplaats?");
+      woonplaats = woonplaats.toLowerCase();
+      var postcode = prompt("Wat is je postcode?");
+      var titel = "JavaScript";
+      var prijs = 29.9;
+      var bedrag = aantal * prijs;
+      var btw = bedrag * 0.06;
+      var totaal = bedrag + btw;
+      var factuurdatum = new Date().toDateString();
+      var betaalmaand = new Date().getMonth() + 1;
+      var betaaljaar = new Date().getFullYear();
+      var betaaldatum = new Date().getDate() + 5;
+      var bezorgkosten = 15;
+      var bezorgkostenBetalen;
+      var LetterCheck2 = false;
+
+      PostCodeCijfers = postcode.substring(0,4);
+      Letter1 = postcode.substring(4,5);
+      Letter2 = postcode.substring(5,6);
+      postcode = postcode.replace(" ", "");
+
+      function Check2() {
+        if (Letter1 === 'A'){
+          if (Letter2 ==='A'||'B'||'C'||'D'||'E'||'F'||'G'||'H'||'I'||'J'||'K'||'L'||'M'||'N'||'O'||'P'||'Q'||'R'||'S'||'T'||'U'||'V'||'W'||'X'||'Y'||'Z'){
+            LetterCheck2 = true;
+          }
+          else{
+            LetterCheck2 = false;
+          }
+        }
+        if (Letter1 ==='B'){
+          if (Letter2 ==='A'||'B'){
+            LetterCheck2= true;
+          }
+          else{
+            LetterCheck2 = false;
+          }
+        }
+      }
+
+      if (woonplaats === "amsterdam" && PostCodeCijfers>999 && PostCodeCijfers <2001){
+        Check2();
+        if (LetterCheck2 === true){
+          alert("Je betaalt geen bezorgkosten.");
+          bezorgkostenBetalen = false
+        }
+        else {
+          alert("je betaalt bezorgkosten");
+          bezorgkostenBetalen = true
+        }
+        if (bezorgkostenBetalen === false){
+          bezorgkosten = 0;
+        }
+        else{
+          bezorgkosten = 15;
+        }
+      }
+
+      document.write("<br>Factuurdatum: " + factuurdatum);
+      document.write("<br>Betaaldatum: " + betaaldatum +' '+ betaalmaand +' '+ betaaljaar);
+      document.write("<br>Bedankt voor je bestelling: " + klantnaam);
+      document.write("<br>Woonplaats: " + woonplaats);
+      document.write("<br>Postcode: " + postcode);
+      document.write("<br>Boektitel is: " + titel);
+      document.write("<br>Aantal te bestellen: " + aantal);
+      document.write("<br>Prijs per boek is: €" + prijs.toFixed(2));
+      document.write("<br>Bedrag is: €" + bedrag.toFixed(2));
+      document.write("<br>BTW is: €" + btw.toFixed(2));
+      document.write("<br>Bezorgkosten zijn: €" + bezorgkosten);
+      totaal = totaal + bezorgkosten;
+      document.write("<br>Totaal bedrag inclusief BTW en bezorgkosten is: €" + totaal.toFixed(2));
+    </script>
+</body>
+</html>
