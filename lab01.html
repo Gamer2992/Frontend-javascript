@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html lang="nl">
+<head>
+    <meta http-equiv="content-type"
+          content="text/html;
+          charset=UTF-8">
+    <title>lab 01</title>
+    <!-- dit script werkt met veriabelen
+        auteur: Henk Moraal
+        datum: 29-01-2020
+        -->
+</head>
+<body>
+    <h2>Lab 01</h2>
+    <h3>Factuur</h3>
+    <script>
+        var klantnaam = prompt("Voer je eigen naam in");
+        var aantal = parseInt(prompt("Aantal boeken bestellen?"));
+        var titel = "Javascript";
+        var prijs = 29.90;
+        var bedrag = aantal * prijs;
+        var btw = bedrag * 0.06;
+        var totaal = bedrag + btw;
+        document.write(
+            "<br>Bedankt voor je bestelling " + klantnaam);
+        document.write("<br>Boektitel is: " + titel);
+        document.write("<br>Aantal te bestellen: " + aantal);
+        document.write("<br>Prijs per boek is: " + prijs.toFixed(2));
+        document.write("<br>Het bedrag is: " + bedrag.toFixed(2));
+        document.write("<br>De BTW is: " + btw.toFixed(2));
+        document.write("<br>Totaal inclusied BTW is: " + totaal.toFixed(2));
+    </script>
+</body>
+</html>
